@@ -10,6 +10,8 @@ Activation_cmd_code
     2.    cd /d %ProgramFiles(x86)%\Microsoft Office\Office16
 5.  Convert your Office license to volume one if possible
     1.    for /f %x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%x"
+    2.    cscript ospp.vbs /inslic:"..\root\Licenses16\ProPlusVL_KMS_Client-ul-oob.xrm-ms"
+    3.    cscript ospp.vbs /inslic:"..\root\Licenses16\ProPlusVL_KMS_Client-ul.xrm-ms"
 6.  Use KMS client key to activate your Office
      1.   cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
      2.   cscript ospp.vbs /unpkey:BTDRB >nul
