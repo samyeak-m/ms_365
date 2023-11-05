@@ -1,0 +1,73 @@
+--------------------------------------------------------------------------------- shell google cloud ubuntu -----------------------------------------------------------------
+-------------------------------------------------------------------------------- download google-chrome & chrome-remote-desktop --------------------------------------------------------------------------------------------
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+--------------------------------------------------------------------------- install download file and chorme -----------------------------------------------------------------------------------------------
+
+sudo apt install ./chrome-remote-desktop_current_amd64.deb
+
+sudo apt install ./google-chrome-stable_current_amd64.deb
+
+sudo apt install --assume-yes task-xfce-desktop
+
+--------------------------------------------------------------------------- install (gui) xfce4 desktop light and fast -----------------------------------------------------------------------------------------------
+
+sudo DEBIAN_FRONTEND=noninteractive \
+apt-get install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+
+sudo bash -c 'echo "exec /etc/x11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+
+sudo systemctl disable lightdm.service
+
+--------------------------------------------------------------------------- connect c-r-d -----------------------------------------------------------------------------------------------
+
+ssh connect
+
+--------------------------------------------------------------------------- to reconnect c-r-d (if error) "REPLACE username" -----------------------------------------------------------------------------------------------
+
+id username
+
+sudo rm /etc/chrome-remote-desktop-session
+
+sudo deluser username chrome-remote-desktop
+
+DISPLAY= /opt/google/chrome-remote-desktop/chrome-remote-desktop --stop
+
+sudo rm /etc/chrome-remote-desktop-session
+
+sudo usermod -a -G chrome-remote-desktop username
+
+/opt/google/chrome-remote-desktop/chrome-remote-desktop --start
+
+--------------------------------------------------------------------------- install (gui) kde plasma desktop heavy and slow -----------------------------------------------------------------------------------------------
+
+
+sudo DEBIAN_FRONTEND=noninteractive \
+    apt install --assume-yes  task-kde-desktop
+
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/startplasma-x11" > /etc/chrome-remote-desktop-session'
+
+--------------------------------------------------------------------------- remove install software -----------------------------------------------------------------------------------------------
+
+sudo apt remove name
+
+sudo apt purge name
+
+sudo apt autoremove
+
+--------------------------------------------------------------------------- install vs code -----------------------------------------------------------------------------------------------
+
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+
+sudo apt update
+
+sudo apt install code
+
+--------------------------------------------------------------------------- run vs code in the terminal -----------------------------------------------------------------------------------------------
+
+type :
+
+	code
